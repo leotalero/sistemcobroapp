@@ -27,40 +27,23 @@
 		   height:50px;
 		   width:50px;
 		}
+		
 	</style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/signin-controller.js"></script>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/signin-controller.js"></script>
 	 <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+		
         <script type="text/javascript">
-            app.initialize();
-			
-			$(function() {
-			  setTimeout(hideSplash, 1000);
-			});
-
-			function hideSplash() {
-			  $.mobile.changePage("#home", "fade");
-			}
-			
-			$( document ).bind( "mobileinit", function() {
-			// Make your jQuery Mobile framework configuration changes here!
-
-			$.mobile.allowCrossDomainPages = true;
-		});
-
-function make_base_auth(user, password) {
-  var tok = user + ':' + password;
-  var hash = btoa(tok);
-  return "Basic " + hash;
-}
+            
+	
 $(document).ready(function() {
 
 
@@ -70,63 +53,7 @@ $('#nombredeusuario').click(function(e){ $(this).focus(); });
   $(document).on('click', '#login', function() { // catch the form's submit event
            if($('#nombredeusuario').val().length > 0 && $('#clave').val().length > 0){
 				//event.preventDefault();
-                var formData = $("#formulario").serialize();
-				
-				var username = $("#nombredeusuario").val();
-				var password = $("#clave").val(); 
-				
-				var auth=make_base_auth(username,password);
-			
-            // $.getJSON('https://jglcompany.herokuapp.com/webresources/productos?callback=?', null, function (results) {
-			//alert('Cross domain JS call achieved. Have your implementation going in here!');
-			//});
-
-var url = 'http://localhost:8080/WebServiceGlassfish/jaxrs/simple/login';
- 
-$.ajax({
-   type: 'POST',
-    url: url,
-    async: false,
-	crossDomain: true,
-    //jsonpCallback: 'jsonCallback',
-    contentType: "application/x-www-form-urlencoded",
-    dataType: 'json',
-	data: {
-    "nombredeusuario":username 
-	},
-	beforeSend : function(xhr) {
-      // generate base 64 string from username + password
-      
-      // set header
-    //  xhr.setRequestHeader("authorization", auth );
-	 // xhr.setRequestHeader("Access-Control-Allow-Origin", "*" );
-    },
-	 headers: {
-   authorization: auth
-	//"authorization": "Basic Z3RhbGVybzpMM29uYXJkb3RAbGVybzIwMTUwNw=="
-	//"Access-Control-Allow-Origin":"*",
-  },
-    success: function(json) {
-    
-	 
-	   if(json.error.codigo==0){
-	   alert("Bienvenido: "+json.usauriobean.nombre);// S1000
-	   window.localStorage["username"] = username;
-		window.localStorage["password"] = password;
-	    window.location.href = "ingreso.html";
-	   }else{
-	     alert(json.error.error);// S1000
-	       
-	   }
-	  
-	   //$.mobile.changePage( "ingreso.html", { transition: "slideup" } );
-	   //console.dir(json.sites);
-    },
-    error: function(e) {
-	alert("error");
-       console.log(e.message);
-    }
-});			
+		
   
    }else{
    alert('Complete los campos.');
@@ -143,54 +70,55 @@ $.ajax({
 		
     </head>
     <body>
-						<div data-role="page" data-theme="b" id="splash" style="background-color: #fff;"> 
-					<div class="splash" style=" position:absolute; top:40%; width:98%;  height:auto;">
-						<!--<img src="http://jquerymobile.com/demos/1.0a4.1/docs/_assets/images/jquery-logo.png" alt="splash" /> -->
-							<img  style="  position:relative;  width:100%;  height:auto; " src="http://ftp.sistemcobro.com/imagen/LogoSistemcobro.png" alt="splash" />
-					</div>
-				</div>
+		
+	 <div data-role="page" id="page-index">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <h1>Sistemcobro</h1>
+        </div><!-- /header -->
+		<div class="vid-container">
+									  <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+										  <source src="http://mazwai.com/system/posts/videos/000/000/109/webm/leif_eliasson--glaciartopp.webm?1410742112" type="video/webm">
+									  </video>
+			<div role="main" class="ui-content">
 				
-				<div data-role="page" data-theme="b" id="home"> 
-				<div data-role="header">
-					<h1>Login</h1>
-				</div><!-- /header -->
-					<div data-role="content" data-theme="a">
-						 <div id="ctn-err" class="bi-invisible"></div>
+										  
+					<div class="inner-container">
+							<div class="box">
 							
-									<form id="formulario" data-theme="a" >
-      
-										<div data-role="fieldcontain" class="ui-hide-label">
-											<label for="username">Usuario:</label>
-											<input type="text" name="nombredeusuario" id="nombredeusuario" value="" placeholder="Usuario"/>
-										</div>
-							  
-										<div data-role="fieldcontain" class="ui-hide-label">
-											<label for="password">Password:</label>
-											<input type="password" name="clave" id="clave" value="" placeholder="Password" />
-										</div>
-						
-									<fieldset data-role="controlgroup">
-										<input type="checkbox" name="chck-rememberme" id="chck-rememberme">
-										<label for="chck-rememberme">Recordar</label>
-									</fieldset>
-
-
-									<input type="submit" data-icon="user" id="login" value="Login" >
-									 <button id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
-										
-
-									</form>		
+								<h1>Bienvenido!</h1>
+								<p class="mc-top-margin-1-5"><b>Usuarios existentes</b></p>
+								<a href="home.html" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Ingresar</a>
+								<p class="mc-top-margin-1-5"><b>No tienes cuenta registrate?</b></p>
+								<a href="#page-signup" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"">Sign Up</a>
+								<p></p>
+							
+							
+			<!-- /content -->
+							</div>
+					</div>
+			</div>
+		</div>			
+	</div><!-- /page -->
+	
+					
+				
+	
+									
+									
+									
 
 							
 						
 					</div>
 					<div data-role="footer">
-						<h1>Sistemcobro</h1>
+						<h2>Sistemcobro</h2>
 					</div><!-- /header -->
-				</div>
+	</div>
        
 	<script src="js/api-messages.js"></script>
     <script src="js/settings.js"></script>
-	<script src="js/session.js"></script>
+	<script src="js/session.js"></script>   
+	<script src="js/signin-controller.js"></script>
+  
     </body>
 </html>

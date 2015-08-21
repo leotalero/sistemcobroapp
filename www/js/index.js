@@ -45,13 +45,28 @@ var app = {
 app.initialize();
 
 app.signInController = new BookIt.SignInController();
-
-
+  
 $(document).delegate("#home", "pagebeforecreate", function () {
 
     app.signInController.init();
 
-    app.signInController.$btnSubmit.off("tap").on("tap", function () {
-        app.signInController.onSignInCommand();
-    });
+    
 });
+
+$(document).on("pagecontainerbeforechange", function (event, ui) {
+
+    if (typeof ui.toPage !== "object") return;
+    
+    switch (ui.toPage.attr("id")) {
+        case "home":
+            if (!ui.prevPage) {
+                // Check session.keepSignedIn and redirect to main menu.
+                var session = BookIt.Session.getInstance().get(),
+                    today = new Date();
+                if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+                    //ui.toPage = $("#page-main-menu"); 
+					window.location.href = "ingreso.html";					}
+            }
+    }
+});
+

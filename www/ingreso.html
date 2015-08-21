@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>Sistemcobro - Principal</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +24,16 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	
+	<script src="js/signin-controller.js"></script>
+	 <script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="phonegap.js"></script>
+    
+	  <script type="text/javascript" src="js/ingreso.js"></script>
+	  
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,12 +56,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Sistemcobro S.A.S.</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" id="listadoaplicaciones">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -70,6 +80,9 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+					<li>
+                        <a  href="http://www.sistemcobro.com/intranet/page/inicio?action=ingresar&ahui=NDEwNTVfMTQ0MDA4NTQ0OTg4Mw**" target="_blank">Prueba</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -81,8 +94,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Our Studio!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
+                <div class="intro-lead-in">Bienvenido a sistemcobro aplicacion movil!</div>
+                <div class="intro-heading">Gracias!!</div>
                 <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
             </div>
         </div>
@@ -238,43 +251,43 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/about/img1.png" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                   <!-- <h4>2009-2011</h4>  -->
+                                    <h4 class="subheading">NUESTRA COMPAÑIA</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Somos una compañía con más de 20 años de experiencia y de gran reconocimiento en el mercado, que mantiene relaciones comerciales a gran escala con prestigiosas empresas del país, las cuales han depositado en nuestra organización toda la confianza para llevar a cabo labores de administración, manejo y seguimiento de carteras, integrando modelos innovadores de gestión que nos permiten crear medios eficientes para resolver las necesidades de los clientes y de esta forma mantener en la mejor condición su imagen de servicio y negociación.</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/about/img2.png" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                   <!-- <h4>2009-2011</h4>  -->
+                                    <h4 class="subheading">POLÍTICA DE CALIDAD</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Proporcionar servicios de contact center y administración de cartera, bajo un sistema de gestión calidad enfocado en el cubrimiento de las  necesidades del cliente, el cumplimiento de los requisitos normativos, el mejoramiento continuo,  y el logro de estándares de efectividad que garanticen un beneficio para el cliente, nuestros socios y colaboradores.</p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/about/img3.png" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                  
+                                    <h4 class="subheading">MISIÓN</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Proporcionamos soluciones de outsourcing, en administración de cartera, Manejo y Administración de Garantías, Administración  en Fondos de capital fiduciario, cobranza y gestión comercial a nivel nacional, entregando satisfactoriamente altos estándares de calidad, efectividad y productividad a través de recursos altamente calificados a nivel tecnológico, humano y financiero.Para Sistemcobro SAS, el factor humano es base de liderazgo, atención, servicio y calidad.  La finalidad de nuestra empresa, se basa en nuestros valores para alcanzar objetivos establecidos y utilizar los recursos necesarios, de la manera más efectiva y así incrementar un excelente servicio comercial con atención avanzada, manteniendo un equilibrio entre los clientes y nuestros colaboradores.</p>
                                 </div>
                             </div>
                         </li>
@@ -441,7 +454,16 @@
             </div>
         </div>
     </section>
-
+ <!-- Contact Section -->
+    <section id="prueba">
+        <div class="container">
+		<div class="row">
+		 <div class="col-lg-12">
+            <iframe src="" name="iframe_a" id="iframe_a"></iframe>
+			<div>
+		</div>
+        </div>
+	</section>
     <footer>
         <div class="container">
             <div class="row">
@@ -642,7 +664,7 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
+	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -657,6 +679,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/agency.js"></script>
+	<script src="js/api-messages.js"></script>
+    <script src="js/settings.js"></script>
+	<script src="js/session.js"></script>   
 
 </body>
 
